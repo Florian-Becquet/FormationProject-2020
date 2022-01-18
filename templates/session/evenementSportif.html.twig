@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	ÉVÉNEMENTS SPORTIFS
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/allSessions.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+        <h2>Événements sportifs</h2>
+        <div class="row flex">
+            {% for sportif in sportifs %}
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class=" mb-3">
+                        <div class="row no-gutters">
+                            <div class="card">
+                                <img src="{{ asset('uploads/images/' ~ sportif.image) | imagine_filter('description') }}" class="card-img-top img-fluid" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {% if not app.user %}
+                                        <a href="{{ path('connexion') }}">{{ sportif.titre }}</a>
+                                        {% else %}
+                                        <a href="{{ path('showSession', {'id':sportif.id}) }}">{{ sportif.titre }}</a>
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">{{ sportif.ville }}</p>
+                                    <p class="card-text">
+                                        <small class="text-muted">{{ sportif.users|length + 1}} / {{ sportif.nbMax }} places restantes</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

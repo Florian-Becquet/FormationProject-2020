@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	MON PROFIL
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('css/profil.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block body %}
+
+	{# {{ form_start(form) }} #}
+	{% for user in users %}
+		<div class="container-fluid">
+			<div class="row">
+				<h2>
+					Paramètres généraux du compte
+				</h2>
+				<div class="offset-md-3 col-xs-12 col-md-6">
+					<div class="info col-xs-12">
+						<h4>
+							Nom
+						</h4>
+						<p>
+							{{ user.nom }}
+						</p>
+						<hr>
+					</div>
+					<div class="info col-xs-12">
+						<h4>
+							Prénom
+						</h4>
+						<p>
+							{{ user.prenom }}
+						</p>
+						<hr>
+					</div>
+					<div class="info col-xs-12">
+						<h4>
+							Email
+						</h4>
+						<p>
+							{{ user.mail }}
+						</p>
+						<hr>
+					</div>
+					<div class="info col-xs-12">
+						<h4>
+							Ville
+						</h4>
+						<p>
+							{{ user.ville }}
+						</p>
+						<hr>
+					</div>
+					<div class="info col-xs-12">
+						<h4>
+							Téléphone
+						</h4>
+						<p>
+							{{ user.tel }}
+						</p>
+						<hr>
+					</div>
+					<div class="info col-xs-12">
+						<h4>
+							Date d'inscription
+						</h4>
+						<p>
+							{{ user.dateInscription | date('d/m/Y') }}
+						</p>
+						<hr>
+					</div>
+					<div class="info col-xs-12">
+						<h4>
+							Type
+						</h4>
+						<p>
+							{{ user.type }}
+						</p>
+
+					</div>
+					<div class="info col-xs-12" id="last">
+						<a href="{{ path('modifProfil', {'id':user.id}) }}">Modifier</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	{% endfor %}
+
+{% endblock %}

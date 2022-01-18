@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	CONNEXION
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('css/inscription.css') }}" rel="stylesheet"/>
+	<link href="{{ asset('css/connexion.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+
+{% for message in app.flashes('message') %}
+	<div class="alert alert-success" role="alert"> {{ message }} </div>
+{% endfor %}
+{% for message in app.flashes('warning') %}
+	<div class="alert alert-warning" role="alert"> {{ message }} </div>
+{% endfor %}
+{% for message in app.flashes('danger') %}
+	<div class="alert alert-danger" role="alert"> {{ message }} </div>
+{% endfor %}
+
+	<div class="row" id="container-registration">
+		<article id="image-bg"></article>
+		<div class="form_wrapper">
+			<div class="form_container">
+				<div class="title_container">
+					<h2>Connexion</h2>
+				</div>
+				<div class="row clearfix">
+					<div class="">
+						<form action="{{ path('connexion') }}" method="POST">
+							<div class="input_field">
+								<span>
+									<i aria-hidden="true" class="fa fa-user"></i>
+								</span>
+								<input type="text" id="login" name="_username" placeholder="Login">
+							</div>
+							<div class="input_field">
+                                <span>
+                                    <i aria-hidden="true" class="fa fa-lock"></i>
+                                </span>
+                                <input type="password" id="password" name="_password" placeholder="Mot de passe">
+                                <span class="show-password">afficher</span>
+                            </div>
+                            {# <div id="ajaxRes"> #}
+
+							<label for="remember_me">Se souvenir de moi<input type="checkbox" id="remember_me" name="_remember_me" checked/></label>
+							
+
+							<button id="draw" type="submit">Se connecter</button><br/>
+							<div id="options">
+								<a href="{{ path('app_forgotten_password') }}">
+									Mot de passe oublié ?
+								</a>
+								<a href="{{ path('inscription') }}">
+									Créer un compte
+								</a>
+							</div>
+							<div class="triangle"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+$(document).ready(function(){
+            $('.show-password').click(function() {
+                if($(this).prev('input').prop('type') == 'password') {
+                    //Si c'est un input type password
+                    $(this).prev('input').prop('type','text');
+                    $(this).text('cacher');
+                } else {
+                    //Sinon
+                    $(this).prev('input').prop('type','password');
+                    $(this).text('afficher');
+                }
+            });
+        });
+</script>
+	
+	<script src="{{ asset('bundles/cnx.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ON VA SUER |
+            {% block title %}
+                HOME
+            {% endblock %}
+        </title>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
+        <script src="https://kit.fontawesome.com/0c4023b20c.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        {% block stylesheets %}
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/sport.svg') }}" />
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css"/>
+            <link href="https://fonts.googleapis.com/css?family=Graduate&display=swap" rel="stylesheet">
+            <link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
+            <link href="{{ asset('css/footer.css') }}" rel="stylesheet"/>
+        {% endblock %}
+		<script src="{{ asset('bundles/index.js') }}" async></script>
+    </head>
+	<body>
+		{% block header %}
+			<div class="container-fluid">
+				<div class="row">
+					<nav class="navbar navbar-expand-lg navbar-light">
+						<a href="{{ path('index')}}"><img id="logo" src="{{ asset('img/logo_OVS.svg') }}" alt="Symfony!"/></a>
+						<div class="collapse navbar-collapse col-xs-4 col-md-10" id="navbarNavAltMarkup">
+							<div
+								class="navbar-nav col-xs-12 col-md-6">
+								{# <a class="nav-item nav-link" href="#">Sessions Entre amis</a>
+								<a class="nav-item nav-link" href="#">Sessions Avec un&nbspcoach</a>
+								<a class="nav-item nav-link" href="#">Événements sportifs</a>
+								<a class="nav-item nav-link" href="#">Événements associatifs</a> #}
+								{% if app.user %}
+									<a class="nav-item nav-link" href="{{ path('mesSessions') }}">Mes sessions</a>
+									<a class="nav-item nav-link" href="{{ path('monProfil') }}">Mon profil</a>
+									<a class="nav-item nav-link" href="{{ path('ajoutSession') }}">Ajouter une session</a>
+								{% endif %}
+							</div>
+
+							{% if not app.user %}
+								<a href="{{ path('connexion') }}">
+									<button class="draw meet">Connexion</button>
+								</a>
+								<a href="{{ path('inscription') }}">
+									<button class="draw meet">Inscription</button>
+								</a>
+							{% else %}
+								<a href="{{ path('deconnexion') }}">
+									<button class="draw meet">Deconnexion</button>
+								</a>
+							{% endif %}
+						</div>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+					</nav>
+				</div>
+			</div>
+		{% endblock %}
+		{% block body %}{% endblock %}
+		{% block footer %}
+			<div id="footer" class="container-fluid">
+				<div class="row">
+					<footer class="offset-md-3 col-md-6">
+						<ul>
+							<a href="{{ path('contact') }}">
+								<li class="col-xs-2">
+									Contact
+								</li>
+							</a>
+							<a href="#">
+								<li class="col-xs-2">
+									<strike>Partenariat</strike>
+								</li>
+							</a>
+							<a href="#">
+								<li class="col-xs-2">
+									<strike>Dons</strike>
+								</li>
+							</a>
+						</ul>
+					</footer>
+				</div>
+			</div>
+		{% endblock %}
+		{% block javascripts %}
+        {% endblock %}
+	</body>
+</html>

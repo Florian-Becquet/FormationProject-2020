@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SESSIONS AVEC UN COACH
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/allSessions.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+        <h2>Sessions avec un coach</h2>
+        <div class="row flex">
+            {% for coach in coachs %}
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class=" mb-3">
+                        <div class="row no-gutters">
+                            <div class="card">
+                                <img src="{{ asset('uploads/images/' ~ coach.image) | imagine_filter('description') }}" class="card-img-top img-fluid" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {% if not app.user %}
+                                        <a href="{{ path('connexion') }}">{{ coach.titre }}</a>
+                                        {% else %}
+                                        <a href="{{ path('showSession', {'id':coach.id}) }}">{{ coach.titre }}</a>
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">{{ coach.ville }}</p>
+                                    <p class="card-text">
+                                        <small class="text-muted">{{ coach.users|length + 1}} / {{ coach.nbMax }} places restantes</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+.form_wrapper {
+    background: #fff;
+    width: 60vw;
+    max-width: 100%;
+    padding: 25px;
+    position: relative;
+    border-top: 5px solid #f6b94a;
+}
+
+#container-registration {
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,.45);
+    width : calc(60vw);
+    margin : 3% auto;
+}
+
+.form_wrapper input[type="file"] {
+    padding: 2px 10px 9px 35px;
+}
+
+input[type="number"] {
+    width : 100%;
+}
+
+.triangle{
+    position : absolute;
+    bottom : 0;
+    right : 0;
+    height : 0;
+    width : 0;
+    border-bottom : 150px solid #f6b94a;
+    border-left : 150px solid transparent;
+    z-index : 5;
+}
+
+#ui-id-1 {
+    z-index : 1;
+    background-color : white;
+    width : 50%;
+}
+
+.ui-helper-hidden-accessible {
+    display : none;
+}
+
+.clearfix {
+    display : initial;
+} 
+
+/* .form_wrapper .row>div {
+    padding : 0 15px;
+}  */
+
+.nopadding {
+    padding : 0!important;
+}
+
+.padding_30 {
+    padding-left : 30px!important;
+    padding-right : 0!important;
+}

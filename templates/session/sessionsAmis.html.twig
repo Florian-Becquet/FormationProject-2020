@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SESSIONS ENTRE AMIS
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/allSessions.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+        <h2>Sessions entre amis</h2>
+        <div class="row flex">
+            {% for ami in amis %}
+                <div class="col-xs-12 col-sm-8 col-md-3">
+                    <div class=" mb-3">
+                        <div class="row no-gutters">
+                            <div class="card">
+                                <img src="{{ asset('uploads/images/' ~ ami.image) }}" class="card-img-top img-fluid" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {# {% if not app.user %} #}
+                                        {# <a href="{{ path('connexion') }}">{{ ami.titre }}</a> #}
+                                        {# {% else %} #}
+                                        <a href="{{ path('showSession', {'id':ami.id}) }}">{{ ami.titre }}</a>
+                                        {# {% endif %} #}
+                                    </h5>
+                                    <p class="card-text">{{ ami.ville }}</p>
+                                    <p class="card-text">
+                                        <small class="text-muted">{{ ami.users|length + 1}} participants sur {{ ami.nbMax }}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

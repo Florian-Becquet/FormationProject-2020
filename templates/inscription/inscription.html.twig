@@ -1,0 +1,185 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	AJOUT SESSION
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('css/inscription.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+
+<div class="row" id="container-registration">
+	<article id="image-bg"></article>
+	<div class="form_wrapper">
+		<div class="form_container">
+			<div class="title_container">
+				<h2>
+					{% if editMode %}
+						Modification paramètres
+					{% else %}
+						Inscription
+					{% endif %}
+				</h2>
+			</div>
+			<div class="row clearfix">
+
+				<div class="">
+					{{ form_start(form) }}
+					<div class="input_field">
+						<span>
+							<i aria-hidden="true" class="fa fa-user"></i>
+						</span>
+						{{ form_row(form.login, {'attr': {'placeholder': 'Entrez votre login'}})}}
+					</div>
+					<div class="input_field">
+						<span>
+							<i aria-hidden="true" class="fa fa-lock"></i>
+						</span>
+						{{ form_row(form.password, {'attr': {'placeholder': 'Entrez votre password'}}, { 'pattern': '"/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/"'})}}
+					</div>
+					<div class="input_field">
+						<span>
+							<i aria-hidden="true" class="fa fa-lock"></i>
+						</span>
+						{{ form_row(form.confirm_password, {'attr': {'placeholder': 'Confirmez votre password'}})}}
+					</div>
+					<div class="input_field">
+						<span>
+							<i aria-hidden="true" class="fa fa-envelope"></i>
+						</span>
+						{{ form_row(form.mail, {'attr': {'placeholder': 'Entrez votre adresse mail'}})}}
+					</div>
+					<div class="row clearfix">
+						<div class="col_half">
+							<div class="input_field">
+								<span>
+									<i aria-hidden="true" class="fa fa-user"></i>
+								</span>
+								{{ form_row(form.nom, {'attr': {'placeholder': 'Nom'}},  { 'pattern': '/^[a-z]+$/i'})}}
+							</div>
+						</div>
+						<div class="col_half">
+							<div class="input_field">
+								<span>
+									<i aria-hidden="true" class="fa fa-user"></i>
+								</span>
+								{{ form_row(form.prenom, {'attr': {'placeholder': 'Prénom'}})}}
+							</div>
+						</div>
+						<div class="col_half">
+							<div class="input_field">
+								<span>
+									<i class="fas fa-city"></i>
+								</span>
+								{{ form_row(form.ville, {'attr': {'placeholder': 'Ville'}})}}
+							</div>
+						</div>
+						<div class="col_half">
+							<div class="input_field">
+								<span>
+									<i class="fas fa-phone"></i>
+								</span>
+								{{ form_row(form.tel, {'attr': {'placeholder': 'Téléphone'}})}}
+							</div>
+						</div>
+					</div>
+
+					<div class="input_field">
+						{{ form_row(form.type)}}
+					</div>
+
+					<div class="row clearfix">
+						<div class="col_half">
+							<div class="input_field" id="nom_societe">
+								<span>
+									<i class="fas fa-building"></i>
+								</span>
+								{{ form_row(form.nomSociete, {'attr': {'placeholder': 'Nom de société'}})}}
+							</div>
+						</div>
+
+						<div class="col_half">
+							<div class="input_field" id="nom_asso">
+								<span>
+									<i class="fas fa-building"></i>
+								</span>
+								{{ form_row(form.nomAssoc, {'attr': {'placeholder': 'Nom d\'association'}})}}
+								</div>
+							</div>
+							<div class="col_half">
+								<div class="input_field">
+									{{ form_row(form.sexe)}}
+								</div>
+							</div>
+							<div class="col_half">
+								<div class="input_field">
+									{{ form_row(form.dateNaiss, {'attr': {'min':'1995-01-01', 'max':'2020-01-01'}})}}
+								</div>
+							</div>
+						</div>
+						{% if editMode %}
+						<input class="button" type="submit" value="Modifier"/>
+						{% else %}
+						<input class="button" type="submit" value="S'incrire"/>
+						{% endif %}
+					{{ form_end(form)}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+
+		{# $(document).on("click", "registration_type_0", function(e){
+
+            e.preventDefault();
+			
+            $.ajax({
+                type: 'POST',
+                url: '{{ path('inscription') }}', 
+                success: function(response) {
+                    console.log(response);
+					console.log("ok");
+                }
+
+            });
+        }); #}
+
+		var btn_asso = document.getElementById("nom_asso");
+		btn_asso.style.display = "none";
+		var btn_societe = document.getElementById("nom_societe");
+		btn_societe.style.display = "none";
+
+		btn_radio_particulier = document.getElementById("registration_type_0");
+		btn_radio_coach = document.getElementById("registration_type_1");
+		btn_radio_asso = document.getElementById("registration_type_2");
+
+		btn_radio_particulier.addEventListener("click", function() {
+			if(btn_radio_particulier.checked == true) {
+				btn_asso.style.display = "none";
+				btn_societe.style.display = "none";
+			}
+		});
+
+		btn_radio_coach.addEventListener("click", function() {
+			if(btn_radio_coach.checked == true) {
+				btn_asso.style.display = "none";
+				btn_societe.style.display = "block";
+			}
+		});
+		
+		btn_radio_asso.addEventListener("click", function() {
+			if(btn_radio_asso.checked == true) {
+				btn_asso.style.display = "block";
+				btn_societe.style.display = "none";
+			}
+		});
+
+    </script>
+{% endblock %}

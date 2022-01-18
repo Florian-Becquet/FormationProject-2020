@@ -1,0 +1,154 @@
+body {
+    background-color: white;
+}
+
+#logo {
+    margin-left : 100px;
+    width: 120px;
+    height: 90px
+}
+
+/******************* NAVBAR *******************/
+
+#navbarNavAltMarkup {
+    text-align: center;
+    margin : auto;
+}
+
+.navbar {
+    background-color: rgb(233, 233, 233);
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.70);
+    width: 100%;
+    padding: 0;
+    
+}
+
+.navbar-nav {
+    margin : auto;
+}
+
+.navbar-nav>a:first-of-type {
+    margin-left : 0!important;
+}
+
+.navbar-nav>a {
+    position: relative;
+    text-transform: uppercase;
+    margin: 0 60px;
+    border-bottom: 2px solid transparent;
+    transition: .4s;
+    font-family: 'Graduate', cursive;
+    text-align: center;
+}
+
+/****** LINE UNDER | HOVER ******/
+
+.navbar-nav>a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #f6b94a;
+    bottom: 0;
+    left: 50%;
+    transition: .5s;
+}
+
+.navbar-nav>a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.navbar {
+    z-index: 2;
+}
+
+/******************* BUTTON CONNEXION *******************/
+
+.draw {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    margin: 1em;
+    padding: 1em 2em;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .5);
+    color: rgba(0, 0, 0, .5);
+    font-size: inherit;
+    font-weight: 700;
+    position: relative;
+    outline: none;
+    font-family: 'Graduate', cursive;
+}
+
+.draw:focus {
+    outline: none;
+}
+
+.draw::before, .draw::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.draw {
+    transition: color 0.25s;
+}
+
+.draw::before, .draw::after {
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+.draw::before {
+    top: 0;
+    left: 0;
+}
+
+.draw::after {
+    bottom: 0;
+    right: 0;
+}
+
+.draw:hover {
+    color: #60daaa;
+}
+
+.draw:hover::before, .draw:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.draw:hover::before {
+    border-top-color: #60daaa;
+    border-right-color: #60daaa;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.draw:hover::after {
+    border-bottom-color: #60daaa;
+    border-left-color: #60daaa;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+
+.meet:hover {
+    color: #f6b94a;
+}
+
+.meet::after {
+    top: 0;
+    left: 0;
+}
+
+.meet:hover::before {
+    border-top-color: #f6b94a;
+    border-right-color: #f6b94a;
+}
+
+.meet:hover::after {
+    border-bottom-color: #f6b94a;
+    border-left-color: #f6b94a;
+    transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}

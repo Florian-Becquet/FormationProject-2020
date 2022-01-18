@@ -1,0 +1,264 @@
+/* body {
+    font-family: 'Graduate', cursive;
+}
+
+form {
+    margin-top : 6%;
+    border : 2px solid black;
+    border-top : none;
+    padding : 25px;
+    margin-bottom : 6%;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size : 50px;
+    margin-top : -50px;
+}
+
+form::before, form::after {
+    content : '';
+    background-color : black;
+    height : 2px;
+    width : 25%;
+    position : absolute;
+    top : 0;
+}
+
+form::before {
+    left : 0;
+}
+
+form::after {
+    right : 0;
+}
+
+label {
+    font-size : 1.2em;
+    margin : 0;
+}
+
+input {
+    transition : 0.6s;
+    outline : none;
+    border : 1px solid rgba(0, 0, 0, .5);
+    padding : 5px;
+    width : 100%;
+    margin-bottom : 10px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width : 15px;
+    height : 15px;
+    margin-left : 15px;
+    margin-right : 5px;
+}
+
+.check {
+    margin-left : 40px;
+}
+
+input:focus {
+    transition : 0.6s;
+    background-color : #f6b94a;
+    color : black;
+}
+
+button:not(.draw) {
+    display : block;
+    margin : auto;
+    background: none;
+    border: 2px solid rgba(0, 0, 0, .5);
+    padding: 1em 2em;
+    color: rgba(0, 0, 0, .5);
+    font-weight: 700;
+    outline: none;
+    transition: 0.4s;
+}
+
+button:not(.draw):hover {
+    border-color : #f6b94a;
+    transition: 0.4s;
+    color : #f6b94a;
+    box-shadow: 0 0.5em 0.5em -0.4em #f6b94a;
+    transform: translateY(-0.25em);
+}
+
+button:not(.draw):focus {
+    outline : none;
+}
+
+#options {
+    text-align: center;
+}
+
+#options > a {
+    margin : 0 20px;
+    text-decoration: none;
+    color : rgba(0, 0, 0, .5);
+    transition: 0.4s;
+}
+
+#options > a:hover {
+    color :  #f6b94a;
+    transition: 0.4s;
+}
+
+input::placeholder {
+    color : rgba(0,0,0,.5);
+}
+
+form > div {
+    width: 45%;
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.triangle{
+    position : absolute;
+    bottom : 0;
+    right : 0;
+    height : 0;
+    width : 0;
+    border-bottom : 150px solid #f6b94a;
+    border-left : 150px solid transparent;
+}
+
+@media screen and (max-width: 910px) {
+    form::before, form::after {
+        width : 5%!important;
+    }
+
+    form {
+        margin : 10% 5px;
+    }
+
+    .form-group {
+        width : 90%;
+    }
+
+    .triangle {
+        display : none;
+    }
+}  */
+
+body {
+    font-family: 'Graduate', cursive;
+}
+
+#image-bg {
+    background : url('../img/jogging.jpg') no-repeat;
+    height : 60vh;
+    background-position: 35% 50%;
+    border-radius: 10px 0 0 10px;
+}
+
+#section-contain {
+    margin-top : 5%;
+    height : 60vh;
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,.45);
+    border-radius: 10px;
+}
+
+.triangle{
+    position : absolute;
+    bottom : 0;
+    right : 0;
+    height : 0;
+    width : 0;
+    border-bottom : 150px solid #f6b94a;
+    border-left : 150px solid transparent;
+}
+
+h2 {
+    margin-top : 5%;
+    position : relative;
+    text-align: center;
+}
+
+h2::before, h2::after {
+    content : '';
+    position : absolute;
+    top : 50%;
+    width : 25%;
+    height : 2px;
+    background-color : black;
+}
+
+h2::before {
+    left : 0;
+}
+
+h2::after {
+    right : 0;
+}
+
+input:not([type="checkbox"]) {
+    width : 100%;
+    transition : 0.6s;
+    outline : none;
+    border : 1px solid rgba(0, 0, 0, .5);
+    padding : 5px;
+    margin-bottom : 10px;
+}
+
+button {
+    float : right;
+}
+
+#options {
+    margin-top : 15%;
+    text-align: center;
+}
+
+#options > a {
+    text-decoration: none;
+    color : black;
+    margin : 0 20px;
+    transition: 0.4s;
+}
+
+#options > a:hover {
+    color : #f6b94a;
+    transition: 0.4s;
+}
+
+input::placeholder {
+    color : rgba(0,0,0,.5);
+}
+
+label {
+    font-size : 1.2em;
+    margin : 0;
+}
+
+input:focus {
+    transition : 0.6s;
+    background-color : #f6b94a;
+    color : black;
+}
+
+button:not(.draw) {
+    display : block;
+    margin : auto;
+    background: none;
+    border: 2px solid rgba(0, 0, 0, .5);
+    padding: 1em 2em;
+    color: rgba(0, 0, 0, .5);
+    font-weight: 700;
+    outline: none;
+    transition: 0.4s;
+}
+
+button:not(.draw):hover {
+    border-color : #f6b94a;
+    transition: 0.4s;
+    color : #f6b94a;
+    box-shadow: 0 0.5em 0.5em -0.4em #f6b94a;
+    transform: translateY(-0.25em);
+}
+
+button:not(.draw):focus {
+    outline : none;
+}

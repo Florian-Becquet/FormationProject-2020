@@ -1,0 +1,69 @@
+#image-bg {
+    background : url('../img/jogging.jpg') no-repeat;
+    background-size : cover;
+    background-position: 20% 90%;
+}
+
+#container-registration {
+    margin : 2% auto;
+    height : 70vh;
+}
+
+.form_wrapper .row>div {
+    width: 80%;
+    margin: auto;
+}
+
+/* .form_container {
+    margin-top : 15%;
+} */
+
+label {
+    line-height : 2em;
+    vertical-align: middle;
+}
+
+input[type="checkbox"] {
+    margin-left : 5px;
+}
+
+#draw {
+    margin-top : 15px!important;
+}
+
+#options {
+    margin : auto;
+}
+
+#options > a {
+    margin : 0 20px;
+    text-decoration: none;
+    color : black;
+    transition: .4s;
+}
+
+#options > a:hover {
+    color : #f6b94a;
+    transition: .4s;
+}
+
+.triangle{
+    position : absolute;
+    bottom : 0;
+    right : 0;
+    height : 0;
+    width : 0;
+    border-bottom : 150px solid #f6b94a;
+    border-left : 150px solid transparent;
+}
+
+.show-password {
+    font-size: 9px;
+    text-transform: uppercase;
+    position: absolute;
+    cursor: pointer;
+    /* margin-left: -48px; */
+    right: 0;
+    padding-right: 55px;
+    padding-top: 10px;
+}

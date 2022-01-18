@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	CONTACT
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link href="{{ asset('css/contact.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+
+	{% for message in app.flashes('messages') %}
+		<div class="alert alert-success" role="alert">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+
+	{# <div class="container">
+	    <div class="form">
+	        <div class="title_container">
+	        	<h2>Nous contacter</h2>
+	        </div>
+	        <p>{{ form(contactForm) }}</p>
+	    </div>
+	    <article id="image-bg"></article>
+	</div> #}
+
+	<div class="row" id="container-registration">
+		<div class="form_wrapper">
+			<div class="form_container">
+
+				<div class="title_container">
+					<h2>Nous contacter</h2>
+				</div>
+
+				<div class="col-md-12">
+					<p>{{ form(contactForm) }}</p>
+				</div>
+{# <div class="triangle"></div> #}
+			</div>
+		</div>
+		<article id="image-bg"></article>
+	</div>
+
+
+{% endblock %}

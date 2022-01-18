@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	ÉVÉNEMENTS ASSOCIATIFS
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/allSessions.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+        <h2>Événements associatifs</h2>
+        <div class="row flex">
+            {% for asso in assos %}
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class=" mb-3">
+                        <div class="row no-gutters">
+                            <div class="card">
+                                <img src="{{ asset('uploads/images/' ~ asso.image) | imagine_filter('description') }}" class="card-img-top img-fluid" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {% if not app.user %}
+                                        <a href="{{ path('connexion') }}">{{ asso.titre }}</a>
+                                        {% else %}
+                                        <a href="{{ path('showSession', {'id':asso.id}) }}">{{ asso.titre }}</a>
+                                        {% endif %}
+                                    </h5>
+                                    <p class="card-text">{{ asso.ville }}</p>
+                                    <p class="card-text">
+                                        <small class="text-muted">{{ asso.users|length + 1}} / {{ asso.nbMax }} places restantes</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

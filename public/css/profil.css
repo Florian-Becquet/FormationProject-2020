@@ -1,0 +1,48 @@
+body {
+    font-family: 'Graduate', cursive;
+}
+
+.info {
+    margin : 30px auto;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.45);
+    width : 100%;
+    line-height : 50px;
+    height : 50px;
+    padding : 0 10px;
+    border-left : 5px solid #f6b94a;
+}
+
+
+#last {
+    box-shadow: none;
+    border : none;
+}
+
+h4 {
+    display: inline-block;
+    margin : 0;
+    width : 45%;
+    font-size : 1.2em;
+}
+
+h2 {
+    margin : 25px auto;
+    text-align: center;
+}
+
+p {
+    display: inline-block;
+    margin : 0 auto;
+    text-align: center;
+    color: rgba(0,0,0,.5);
+    float : right;
+}
+
+a {
+    float:right;
+}
+
+hr {
+    
+    background-color: transparent;
+}
